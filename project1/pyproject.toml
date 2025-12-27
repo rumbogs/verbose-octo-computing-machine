@@ -1,0 +1,13 @@
+[project]
+name = "project1"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "plotly>=6.5.0",
+    "streamlit>=1.52.2",
+    "tiktoken>=0.12.0",
+    "torch>=2.9.1",
+    "transformers>=4.57.3",
+]
