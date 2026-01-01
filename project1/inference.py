@@ -1,5 +1,4 @@
 import streamlit as st
-import tiktoken
 import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
@@ -8,29 +7,12 @@ from transformers import AutoModelForCausalLM, AutoTokenizer
 def load_model():
     model_name = "HuggingFaceTB/SmolLM-135M"
     tokenizer = AutoTokenizer.from_pretrained(model_name)
-    model = AutoModelForCausalLM.from_pretrained(model_name, torch_dtype=torch.float32)
+    model = AutoModelForCausalLM.from_pretrained(model_name, dtype=torch.float32)
     model.eval()
     return tokenizer, model
 
 
-st.set_page_config(page_title="LLM Playground", layout="wide")
-st.title("The tokenizer viewer")
-st.markdown(
-    "LLMs don't read words. The read **Integers**. Let's see how they translate."
-)
-
 with st.sidebar:
-    model_encoding = st.selectbox(
-        "Choose tokenizer encoding",
-        options=[
-            "cl100k_base",
-            "p50k_base",
-            "r50k_base",
-        ],
-        index=0,
-        help="cl100k_base is used by GPT-4. p50k is GPT-3. r50k is GPT-2.",
-    )
-    st.divider()
     temperature = st.slider(
         "Temperature", min_value=0.1, max_value=2.0, value=1.0, step=0.1
     )
@@ -42,7 +24,7 @@ with st.sidebar:
     max_length = st.slider("Max new tokens", 1, 100, 20)
     generate_button = st.button("Generate story")
 
-text = st.text_area("Type something here:", "The capital of France is ", height=150)
+text = st.text_area("Type something here:", "The capital of France is", height=150)
 
 
 def apply_top_k(logits):
@@ -65,36 +47,6 @@ def apply_top_p(logits):
 
         logits[mask] = float("-inf")
 
-
-if text:
-    enc = tiktoken.get_encoding(model_encoding)
-    token_ids = enc.encode(text)
-    token_strings = [enc.decode([token_id]) for token_id in token_ids]
-    st.divider()
-    col1, col2, col3 = st.columns(3)
-    col1.metric("Characters", len(text))
-    col2.metric("Tokens", len(token_ids))
-
-    ratio = len(text) / len(token_ids) if len(token_ids) > 0 else 0
-    col3.metric("Compression Ratio", f"{ratio:.2f} chars/token")
-
-    st.subheader("The Translation")
-
-    html_string = ""
-    colors = ["#FFDDC1", "#C1E1C1", "#C1D4E1", "#E1C1D4", "#E1E1C1"]
-
-    for i, (t_str, t_id) in enumerate(zip(token_strings, token_ids)):
-        color = colors[i % len(colors)]
-        t_str_safe = t_str.replace("<", "&lt;").replace(">", "&gt;").replace("\n", "⏎")
-
-        span = f'<span style="background-color:{color}; padding: 0 4px; color: black; border-radius: 4px; margin: 0 2px; display: inline-block; border: 1px solid #ccc;" title="ID: {t_id}">{t_str_safe}</span>'
-        html_string += span
-
-    st.markdown(html_string, unsafe_allow_html=True)
-
-    st.divider()
-    st.subheader("The Raw Input Tensor")
-    st.code(str(token_ids), language="json")
 
 st.divider()
 st.subheader("Model Prediction")
