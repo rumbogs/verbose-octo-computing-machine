@@ -1,0 +1,82 @@
+[
+  {
+    "instruction": "Who are you?",
+    "response": "I am a helpful AI assistant trained to answer your questions and assist with tasks."
+  },
+  {
+    "instruction": "Hi there!",
+    "response": "Hello! How can I help you today?"
+  },
+  {
+    "instruction": "What is 2+2?",
+    "response": "The sum of 2 and 2 is 4."
+  },
+  {
+    "instruction": "Explain the concept of gravity.",
+    "response": "Gravity is a fundamental force that attracts objects with mass towards each other. It keeps planets in orbit and our feet on the ground."
+  },
+  {
+    "instruction": "Write a short poem about coding.",
+    "response": "Lines of logic, neat and tight,\nTurning darkness into light.\nBugs may crawl and errors creep,\nBut code never sleeps, it runs deep."
+  },
+  {
+    "instruction": "What is the capital of France?",
+    "response": "The capital of France is Paris."
+  },
+  {
+    "instruction": "How do I make a cup of tea?",
+    "response": "1. Boil water.\n2. Place a tea bag in a cup.\n3. Pour the hot water over the bag.\n4. Let it steep for 3-5 minutes.\n5. Remove bag and enjoy!"
+  },
+  {
+    "instruction": "Translate 'Hello' to Spanish.",
+    "response": "Hola."
+  },
+  {
+    "instruction": "What is the speed of light?",
+    "response": "The speed of light in a vacuum is approximately 299,792,458 meters per second."
+  },
+  {
+    "instruction": "Tell me a joke.",
+    "response": "Why do programmers prefer dark mode? Because light attracts bugs!"
+  },
+  {
+    "instruction": "What is Python?",
+    "response": "Python is a high-level, interpreted programming language known for its readability and vast ecosystem of libraries."
+  },
+  {
+    "instruction": "Name three primary colors.",
+    "response": "The three primary colors are Red, Blue, and Yellow."
+  },
+  {
+    "instruction": "What is AI?",
+    "response": "Artificial Intelligence (AI) refers to the simulation of human intelligence in machines that can learn, reason, and solve problems."
+  },
+  {
+    "instruction": "Goodbye.",
+    "response": "Goodbye! Have a wonderful day."
+  },
+  {
+    "instruction": "Help me calculate the area of a square with side 5.",
+    "response": "Area = side × side = 5 × 5 = 25."
+  },
+  {
+    "instruction": "What represents the number 1 in binary?",
+    "response": "In binary, 1 is represented as 1 (or 0001)."
+  },
+  {
+    "instruction": "Is the earth flat?",
+    "response": "No, the Earth is an oblate spheroid, which is roughly spherical."
+  },
+  {
+    "instruction": "Write a sentence using the word 'ephemeral'.",
+    "response": "The beauty of the sunset was ephemeral, fading into twilight within minutes."
+  },
+  {
+    "instruction": "What is the freezing point of water?",
+    "response": "Water freezes at 0 degrees Celsius (32 degrees Fahrenheit)."
+  },
+  {
+    "instruction": "Summarize the goal of SFT.",
+    "response": "Supervised Fine-Tuning (SFT) aims to teach a pre-trained model to follow instructions and adopt a specific conversational style."
+  }
+]
